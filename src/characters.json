@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Demagorgan",
+        "image": "../public/images/Demagorgan.png"
+    },
+    {
+        "id": 2,
+        "name": "Dustin",
+        "image": "../public/images/Dustin_Henderson.png"
+    }
+]
