@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
 import Card from "./components/Card";
 import characters from "./characters.json"
+
+
 class App extends Component {
   state = {
     characters,
@@ -31,7 +33,6 @@ class App extends Component {
   // Add id to the clicked array
   clicked = card => {
     this.shuffleArray(characters)
-  
   if (this.state.clicked.includes(card.target.id)) {
     this.resetGame();
   } else {
@@ -41,6 +42,11 @@ class App extends Component {
     newClicksArray.push(card.target.id)
     this.setState({ clicked: newClicksArray}) 
   }
+}
+
+increase = () => {
+  const newScore = this.state.currentScore + 1;
+  this.setState({currentScore : newScore})
 }
 
   render() {
@@ -56,9 +62,8 @@ class App extends Component {
               id={character.id}
               image={character.image}
               name={character.name}
-              hasBeenClicked={this.hasBeenClicked}
+              clicked={this.clicked}
               />
-
          ))}
       </Wrapper>
     );

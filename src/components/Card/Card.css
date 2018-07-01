@@ -1,20 +1,28 @@
-container {
-    display:inline-block;
-}
 
 
 .card{
+    background: #fff;
     border-radius: 5px;
-    height: 145px;
+    height: 200px;
     margin: 1rem;
     position: relative;
-    width: 175px;
+    width: 170px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align:center;
+    transition: all .2s ease-in-out;
+}
+.img-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.img-container:hover {
+    cursor: pointer;
 }
 
-img-responsive {
-    width: 80%;
-    margin-left: 20px;
-    padding-top:8px;
+.character-image {
+    max-width:  90%;
+    display: block;
+    height: auto;
+
 }

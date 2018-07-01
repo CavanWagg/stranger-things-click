@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Card.css";
 
 const Card = props => (
   <div className="card-container">
-    <div className="card" onClick={props.hasBeenClicked}>
+    <div className="card" onClick={props.clicked}>
       <div className="img-container">
         <img
           id={props.id}
-          className="img-responsive"
+          className="character-image"
           alt={props.name}
           src={props.image}
         />
