@@ -6,17 +6,22 @@ import Card from "./components/Card";
 import characters from "./characters.json"
 class App extends Component {
   state = {
+    characters,
     highScore: 0,
     currentScore: 0,
     clicked: [],
  
   };
-  // handleClick = () => {
-  //   this.setState({
-  //     cards
-  //   })
-  // }
 
+  resetGame = () => {
+    this.setState({
+      characters,
+      currentScore: 0,
+      highScore: this.state.currentScore,
+      clicked: []
+    })
+    this.shuffleArray(characters)
+  }
   // shuffle image cards randomly
   shuffleArray = arr => {
     const newCharacters = arr.sort(() => Math.random() - 0.5);
@@ -25,8 +30,18 @@ class App extends Component {
 
   // Add id to the clicked array
   clicked = card => {
-    this.shuffleArray(characters);
-  };
+    this.shuffleArray(characters)
+  
+  if (this.state.clicked.includes(card.target.id)) {
+    this.resetGame();
+  } else {
+    this.increase();
+    // add an id to the clicked array
+    const newClicksArray = this.state.clicked.slice();
+    newClicksArray.push(card.target.id)
+    this.setState({ clicked: newClicksArray}) 
+  }
+}
 
   render() {
     return (
@@ -35,18 +50,20 @@ class App extends Component {
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
         />
-        {this.state.characters.map(character => (
+         {this.state.characters.map(character => (
           <Card
-            key={character.id}
-            id={character.id}
-            image={character.image}
-            name={character.name}
-            hasBeenClicked={this.hasBeenClicked}
-          />
-        ))}
+              key={character.id}
+              id={character.id}
+              image={character.image}
+              name={character.name}
+              hasBeenClicked={this.hasBeenClicked}
+              />
+
+         ))}
       </Wrapper>
     );
-  }
+  
+}
 }
 
 export default App;
