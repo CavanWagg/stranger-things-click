@@ -14,4 +14,4 @@ A simple memory game. User's gain points by clicking on the images. After each c
 
 1. `git clone` the repo
 2. Open the terminal and enter `npm install`
-3. Execut `npm start` to run locally
+3. Execute `npm start` to run locally
